@@ -1,0 +1,26 @@
+import { Resend } from "resend";
+import { ConnectMeEmail } from "../emails/ConnectMeEmail";
+const sendEmail = async (req: any, res: any) => {
+  const resend = new Resend("re_6mU9aAv9_832jnXpYz44XP3FDiEJynJrc");
+  console.log(req.body.purpose);
+
+  const data = await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: "aakapa95@gmail.com",
+    subject: `Portfolio Reminder | ${req.body.purpose}`,
+    react: ConnectMeEmail({
+      name: req.body.name,
+      email: req.body.email,
+      purpose: req.body.purpose,
+      message: req.body.message,
+    }),
+  });
+
+  if (data.error) {
+    console.error("Error sending email:", data.error);
+    return res.status(500).json({ message: "Error sending email" });
+  }
+  res.status(200).json({ message: "Email sent successfully" });
+};
+
+export { sendEmail };
