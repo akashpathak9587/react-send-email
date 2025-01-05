@@ -1,11 +1,16 @@
 import express from "express";
 import { commonRouter } from "./routes/commonRoutes";
+import dotenv from "dotenv";
 import cors from "cors";
 const app = express();
 
+dotenv.config();
+
+console.log(process.env.RESEND_API_KEY);
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.ALLOWED_ORIGIN,
   })
 );
 app.use(express.json());

@@ -7,7 +7,8 @@ import tseslint from "typescript-eslint";
 export default [
   {
     rules: {
-      "no-inline-styles": "off"
+      "no-inline-styles": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     }
   },
   {files: ["**/*.{js,mjs,cjs,ts}"]},
