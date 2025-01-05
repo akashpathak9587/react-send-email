@@ -6,8 +6,6 @@ const app = express();
 
 dotenv.config();
 
-console.log(process.env.RESEND_API_KEY);
-
 app.use(
   cors({
     origin: process.env.ALLOWED_ORIGIN,
