@@ -1,7 +1,8 @@
 import { Resend } from "resend";
 import { ConnectMeEmail } from "../emails/ConnectMeEmail";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sendEmail = async (req: any, res: any) => {
-  const resend = new Resend("re_6mU9aAv9_832jnXpYz44XP3FDiEJynJrc");
+const resend = new Resend(process.env.RESEND_API_KEY);
   console.log(req.body.purpose);
 
   const data = await resend.emails.send({
