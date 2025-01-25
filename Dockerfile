@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 ENV NODE_ENV=production
-ENV ALLOWED_ORIGIN=http://localhost:5173
+ENV ALLOWED_ORIGIN=http://localhost:8080
 ENV RESEND_API_KEY=re_6mU9aAv9_832jnXpYz44XP3FDiEJynJrc
 ENV PORT=3001
 WORKDIR /usr/src/app
